@@ -24,8 +24,8 @@
     // Edit the Menu Settings:
 //    [self.menu setArcBackgroundColor:[UIColor blackColor]];
 //    [self.menu setBackgroundColor:[UIColor clearColor]];
-//    [self.menu setButtonAppearanceTime:0.4];
-//    [self.menu setButtonDisappearanceTime:0.4];
+    [self.menu setButtonAppearanceTime:0.4];
+    [self.menu setButtonDisappearanceTime:0.4];
 //    [self.menu setButtonsContinueSliding:YES];
 //    [self.menu setButtonsAppearClockwise:YES];
 //    [self.menu setUseSimpleMenu:NO];
@@ -33,6 +33,10 @@
 
     [self.menu setDelegate:(id<IPMenuDelegate>)self];
     [self.menu setMenuPosition:IPMenuPositionBottomLeft];
+    
+    UIImage *menuButtonImage = [UIImage imageNamed:@"menuButton"];
+    IPMenuItem *menuButton = [[IPMenuItem alloc] initWithButtonImage:menuButtonImage];
+    [self.menu setMenuButton:menuButton];
     
     // Allocate menu buttons and add them to the menu
     UIImage *buttonImage = [UIImage imageNamed:@"menuItem"];
@@ -45,10 +49,6 @@
     NSArray *buttonArray = [NSArray arrayWithObjects:button1, button2, button3, button4, button5, nil];
     [self.menu setButtons:buttonArray];
     
-    UIImage *menuButtonImage = [UIImage imageNamed:@"menuButton"];
-    IPMenuItem *menuButton = [[IPMenuItem alloc] initWithButtonImage:menuButtonImage];
-    [self.menu setMenuButton:menuButton];
-        
     // Add the menu as a subview and initialize it
     [self.view addSubview:self.menu];
     [self.menu initializeMenu];
