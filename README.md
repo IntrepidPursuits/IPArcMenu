@@ -6,6 +6,8 @@ IPMenu is an iOS drop-in class, inspired by the Path menu system, that provides 
 
 +[![](http://i.imgur.com/9CslH.gif)](http://i.imgur.com/9CslH.gif)
 +[![](http://i.imgur.com/hSyo9.gif)](http://i.imgur.com/hSyo9.gif)
++[![](http://i.imgur.com/NrV34.gif)](http://i.imgur.com/NrV34.gif)
+
 
 ------------
 Requirements
