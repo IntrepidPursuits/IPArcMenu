@@ -4,10 +4,6 @@ IPMenu
 
 IPMenu is an iOS drop-in class, inspired by the Path menu system, that provides all the code needed for an elegant menu interface. The class allows the menu to be placed at 8 different places on the iPhone screen. All calculations for drawing, button placement, and animation are handled by the class and require no work on the programmers behalf.
 
-[![](http://dl.dropbox.com/u/378729/MBProgressHUD/1-thumb.png)](http://dl.dropbox.com/u/378729/MBProgressHUD/1.png)
-[![](http://dl.dropbox.com/u/378729/MBProgressHUD/2-thumb.png)](http://dl.dropbox.com/u/378729/MBProgressHUD/2.png)
-[![](http://dl.dropbox.com/u/378729/MBProgressHUD/3-thumb.png)](http://dl.dropbox.com/u/378729/MBProgressHUD/3.png)
-
 ------------
 Requirements
 ============
@@ -35,7 +31,7 @@ The simplest way to add IPMenu to your project is to directly add the following 
 - IPMenuItem.m
 
 To do this you can perform these steps:
-1. Download the [latest code](https://github.com/matej/MBProgressHUD/downloads) or add the repository as a git submodule to your git-tracked project.
+1. Download the [latest code](https://github.com/ButkiewiczP/IPMenu) or add the repository as a git submodule to your git-tracked project.
 
 2. Open your project in Xcode, then drag-and-drop the 4 files listed above into your project. Make sure to select "Copy items into destination's group folder" when asked if the IPMenu files weren't extracted to your project's folder.
 
@@ -63,4 +59,4 @@ This code is distributed under the terms and conditions of the MIT license.
 Change-log
 ==========
 
-**Initial release** on 01/15/2013
+**Initial Working Release** on 01/15/2013
