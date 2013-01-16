@@ -4,9 +4,9 @@ IPMenu
 
 IPMenu is an iOS drop-in class, inspired by the Path menu system, that provides all the code needed for an elegant menu interface. The class allows the menu to be placed at 8 different places on the iPhone screen. All calculations for drawing, button placement, and animation are handled by the class and require no work on the programmers behalf.
 
-+[![](http://i.imgur.com/9CslH.gif)](http://i.imgur.com/9CslH.gif)
-+[![](http://i.imgur.com/hSyo9.gif)](http://i.imgur.com/hSyo9.gif)
-+[![](http://i.imgur.com/NrV34.gif)](http://i.imgur.com/NrV34.gif)
++[![](http://i.imgur.com/9CslH)](http://i.imgur.com/9CslH.gif)
++[![](http://i.imgur.com/hSyo9)](http://i.imgur.com/hSyo9.gif)
++[![](http://i.imgur.com/NrV34)](http://i.imgur.com/NrV34.gif)
 
 
 ------------
