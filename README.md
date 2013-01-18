@@ -1,10 +1,3 @@
-This Project Has Been Moved
-=============
--------------
-
-For the most up-to-date code, please visit [our new repository](https://github.com/IntrepidPursuits/IPArcMenu)
-
-
 IPArcMenu
 =============
 -------------
