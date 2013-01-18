@@ -1,13 +1,13 @@
 //
 //  IPAppDelegate.m
-//  IPMenu
+//  IPArcMenu
 //
-//  Created by Patrick Butkiewicz on 12/16/12.
-//  Released under the terms of the MIT License
+//  Created by Patrick Butkiewicz on 1/18/13.
+//  Copyright (c) 2013 Intrepid Pursuits. All rights reserved.
 //
 
 #import "IPAppDelegate.h"
-#import "IPViewController.h"
+#import "IPDemoViewController.h"
 
 @implementation IPAppDelegate
 
@@ -15,8 +15,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[IPViewController alloc] initWithNibName:@"IPViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = [[IPDemoViewController alloc] initWithNibName:nil bundle:nil];
     [self.window makeKeyAndVisible];
     return YES;
 }

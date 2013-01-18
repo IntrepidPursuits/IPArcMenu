@@ -1,5 +1,5 @@
 //
-//  IPMenuItem.h
+//  IPArcMenuItem.h
 //  IPMenu
 //
 //  Created by Patrick Butkiewicz on 12/17/12.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface IPMenuItem : UIButton
+@interface IPArcMenuItem : UIButton
 
 @property (nonatomic, strong) UIBezierPath *appearancePath;
 @property (nonatomic, strong) UIBezierPath *continuousDisappearancePath;

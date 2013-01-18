@@ -1,6 +1,6 @@
 //
-//  IPMenu.h
-//  IPMenu
+//  IPArcMenu.h
+//  IPArcMenu
 //
 //  Created by Patrick Butkiewicz on 12/16/12.
 //  Released under the terms of the MIT License
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-#import "IPMenuItem.h"
+#import "IPArcMenuItem.h"
 
 static const double degreesInCircle = 360.0;
 static const double menuButtonOffset = 20.0;
@@ -32,21 +32,21 @@ typedef enum {
 } IPMenuPosition;
 
 // Protocol Declaration for the Menu's delegate
-@class IPMenu;
-@protocol IPMenuDelegate <NSObject>
-- (void) IPMenu:(IPMenu *)IPMenu didSelectMenuItemAtIndex:(NSInteger)index;
+@class IPArcMenu;
+@protocol IPArcMenuDelegate <NSObject>
+- (void) IPArcMenu:(IPArcMenu *)IPMenu didSelectMenuItemAtIndex:(NSInteger)index;
 @optional
-- (void) IPMenu:(IPMenu *)IPMenu didSelectMenuItem:(IPMenuItem *) menuItem;
-- (void) IPMenu:(IPMenu *)IPMenu didFinishHiding:(BOOL)finished;
-- (void) IPMenu:(IPMenu *)IPMenu didFinishShowing:(BOOL)finished;
+- (void) IPArcMenu:(IPArcMenu *)IPMenu didSelectMenuItem:(IPArcMenuItem *) menuItem;
+- (void) IPArcMenu:(IPArcMenu *)IPMenu didFinishHiding:(BOOL)finished;
+- (void) IPArcMenu:(IPArcMenu *)IPMenu didFinishShowing:(BOOL)finished;
 - (NSInteger) customDebugArcAngle;
 @end
 
 
-@interface IPMenu : UIView
+@interface IPArcMenu : UIView
 
 // Menu Settings
-@property (nonatomic, weak) id<IPMenuDelegate> delegate;
+@property (nonatomic, weak) id<IPArcMenuDelegate> delegate;
 @property (nonatomic) IPMenuPosition menuPosition;
 @property (nonatomic) BOOL isShowing;
 @property (nonatomic) BOOL buttonsAppearClockwise;

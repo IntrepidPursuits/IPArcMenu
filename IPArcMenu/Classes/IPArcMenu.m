@@ -6,9 +6,9 @@
 //  Released under the terms of the MIT License
 //
 
-#import "IPMenu.h"
+#import "IPArcMenu.h"
 
-@implementation IPMenu
+@implementation IPArcMenu
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -68,8 +68,8 @@
     CGContextFillPath(context);
 }
 
-// Uses the starting and ending angles to create UIBezierPaths for each IPMenuItem
-//   The UIBezierPath's are stored as a property of the IPMenuItem
+// Uses the starting and ending angles to create UIBezierPaths for each IPArcMenuItem
+//   The UIBezierPath's are stored as a property of the IPArcMenuItem
 - (void)setupMenuItems{
     if(self.buttons.count == 0) return;
     
@@ -97,7 +97,7 @@
         hiddenDestinationAngle = fmodf((endAngle - changeInAngle), degreesInCircle);
     }
     
-    for (IPMenuItem *menuItem in self.buttons) {
+    for (IPArcMenuItem *menuItem in self.buttons) {
         [menuItem setFrame:CGRectMake(0, 0, self.buttonSize, self.buttonSize)];
         
         if(self.buttonsAppearClockwise)
@@ -184,7 +184,7 @@
     // Setup the menu button
     
     if(!_menuButton){
-        IPMenuItem *newMenuButton = [[IPMenuItem alloc] init];
+        IPArcMenuItem *newMenuButton = [[IPArcMenuItem alloc] init];
         _menuButton = newMenuButton;
     }
     
@@ -200,17 +200,17 @@
 
 #pragma mark - Menu Delegate Handler Functions
 
-- (void) didPressMenuItem:(IPMenuItem *)menuItem{
+- (void) didPressMenuItem:(IPArcMenuItem *)menuItem{
     
     [self specialHideCurveMenuWithMenuItem:menuItem];
     
     // Report button touch back to the delegate
     if(self.delegate && [self.delegate respondsToSelector:@selector(IPMenu:didSelectMenuItemAtIndex:)]){
-        [self.delegate IPMenu:self didSelectMenuItemAtIndex:[self.buttons indexOfObject:menuItem]];
+        [self.delegate IPArcMenu:self didSelectMenuItemAtIndex:[self.buttons indexOfObject:menuItem]];
     }
     
     if(self.delegate && [self.delegate respondsToSelector:@selector(IPMenu:didSelectMenuItem:)]){
-        [self.delegate IPMenu:self didSelectMenuItem:menuItem];
+        [self.delegate IPArcMenu:self didSelectMenuItem:menuItem];
     }
     
 }
@@ -261,7 +261,7 @@
         int showCount = 0;
         double trueShowTime = self.buttonAppearanceTime * ((self.buttons.count > 5) ? 5 : self.buttons.count);
         [CATransaction begin];
-        for (IPMenuItem *menuItem in self.buttons) {
+        for (IPArcMenuItem *menuItem in self.buttons) {
             CALayer *buttonlayer = menuItem.layer;
             [buttonlayer removeAllAnimations];
             [self.layer addSublayer:buttonlayer];
@@ -291,11 +291,11 @@
             [self setAlpha:1.0];
         }completion:^(BOOL finished) {
             if(self.delegate && [self.delegate respondsToSelector:@selector(IPMenu:didFinishShowing:)])
-                [self.delegate IPMenu:self didFinishShowing:finished];
+                [self.delegate IPArcMenu:self didFinishShowing:finished];
         }];
         
     }else{  // Non-Animated Show
-        for (IPMenuItem *menuItem in self.buttons) {
+        for (IPArcMenuItem *menuItem in self.buttons) {
             [menuItem setCenter:menuItem.destinationPointOnArc];
         }
         [self setAlpha:1.0];
@@ -308,7 +308,7 @@
 - (void) hideCurveMenuWithAnimation:(BOOL)animated{
     
     if(animated){   // Animated Hide
-        for (IPMenuItem *menuItem in self.buttons) {
+        for (IPArcMenuItem *menuItem in self.buttons) {
             CALayer *buttonlayer = menuItem.layer;
             
             // Animation to move button position along path
@@ -337,12 +337,12 @@
             [self setAlpha:0];
         }completion:^(BOOL finished) {
             if(self.delegate && [self.delegate respondsToSelector:@selector(IPMenu:didFinishHiding:)])
-                [self.delegate IPMenu:self didFinishHiding:finished];
+                [self.delegate IPArcMenu:self didFinishHiding:finished];
         }];
         
     }else{  // Non-Animated Hide
         
-        for (IPMenuItem *menuItem in self.buttons) {
+        for (IPArcMenuItem *menuItem in self.buttons) {
             [menuItem setCenter:menuItem.originPoint];
         }
         [self setAlpha:0];
@@ -353,10 +353,10 @@
     
 }
 
-- (void) specialHideCurveMenuWithMenuItem:(IPMenuItem *)menuItem{
+- (void) specialHideCurveMenuWithMenuItem:(IPArcMenuItem *)menuItem{
     BOOL selectedButtonFound = NO;
     
-    for (IPMenuItem *button in self.buttons) {
+    for (IPArcMenuItem *button in self.buttons) {
         CALayer *buttonLayer = button.layer;
         CAAnimationGroup *buttonAnimationGroup = [CAAnimationGroup animation];
         CAKeyframeAnimation *buttonPositionAnimation = [CAKeyframeAnimation animation];
@@ -391,7 +391,7 @@
     }completion:^(BOOL finished) {
         [self setIsShowing:NO];
         if(self.delegate && [self.delegate respondsToSelector:@selector(IPMenu:didFinishHiding:)])
-            [self.delegate IPMenu:self didFinishHiding:finished];
+            [self.delegate IPArcMenu:self didFinishHiding:finished];
     }];
     
 }
@@ -400,18 +400,18 @@
 - (void) showSimpleMenuWithAnimation:(BOOL)animated{
     if(animated){
         [UIView animateWithDuration:self.buttonAppearanceTime animations:^(void){
-            for (IPMenuItem *button in self.buttons) {
+            for (IPArcMenuItem *button in self.buttons) {
                 [button setAlpha:1.0];
                 [button setCenter:button.destinationPointOnArc];
             }
             [self setAlpha:1.0];
         }completion:^(BOOL finished) {
             if(self.delegate && [self.delegate respondsToSelector:@selector(IPMenu:didFinishShowing:)])
-                [self.delegate IPMenu:self didFinishShowing:finished];
+                [self.delegate IPArcMenu:self didFinishShowing:finished];
         }];
         
     }else{
-        for (IPMenuItem *button in self.buttons) {
+        for (IPArcMenuItem *button in self.buttons) {
             [button setAlpha:1.0];
             [button setCenter:button.destinationPointOnArc];
         }
@@ -424,17 +424,17 @@
 - (void) hideSimpleMenuWithAnimation:(BOOL)animated{
     if(animated){
         [UIView animateWithDuration:self.buttonDisappearanceTime animations:^(void){
-            for (IPMenuItem *button in self.buttons) {
+            for (IPArcMenuItem *button in self.buttons) {
                 [button setAlpha:0];
                 [button setCenter:[self originPointForMenuButton]];
             }
             [self setAlpha:0];
         }completion:^(BOOL finished) {
             if(self.delegate && [self.delegate respondsToSelector:@selector(IPMenu:didFinishHiding:)])
-                [self.delegate IPMenu:self didFinishHiding:finished];
+                [self.delegate IPArcMenu:self didFinishHiding:finished];
         }];
     }else{
-        for(IPMenuItem *button in self.buttons){
+        for(IPArcMenuItem *button in self.buttons){
             [button setAlpha:0.0];
             [button setCenter:[self originPointForMenuButton]];
         }

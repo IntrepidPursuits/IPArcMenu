@@ -1,14 +1,14 @@
 //
-//  IPMenuItem.m
+//  IPArcMenuItem.m
 //  IPMenu
 //
 //  Created by Patrick Butkiewicz on 12/17/12.
 //  Released under the terms of the MIT License
 //
 
-#import "IPMenuItem.h"
+#import "IPArcMenuItem.h"
 
-@implementation IPMenuItem
+@implementation IPArcMenuItem
 
 - (id)initWithFrame:(CGRect)frame
 {

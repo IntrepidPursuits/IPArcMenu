@@ -1,9 +1,9 @@
 //
 //  main.m
-//  IPMenu
+//  IPArcMenu
 //
-//  Created by Patrick Butkiewicz on 12/16/12.
-//  Released under the terms of the MIT License
+//  Created by Patrick Butkiewicz on 1/18/13.
+//  Copyright (c) 2013 Intrepid Pursuits. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
