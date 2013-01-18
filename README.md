@@ -37,7 +37,7 @@ The simplest way to add IPArcMenu to your project is to directly add the followi
 
 To do this you can perform these steps:
 
-1. Download the [latest code](https://github.com/ButkiewiczP/IPArcMenu) or add the repository as a git submodule to your git-tracked project.
+1. Download the [latest code](https://github.com/IntrepidPursuits/IPArcMenu) or add the repository as a git submodule to your git-tracked project.
 2. Open your project in Xcode, then drag-and-drop the 4 files listed above into your project. Make sure to select "Copy items into destination's group folder" when asked if the IPArcMenu files weren't extracted to your project's folder.
 3. Include IPArcMenu wherever you may need it with '#import "IPArcMenu.h" 
 
