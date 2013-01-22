@@ -205,11 +205,11 @@
     [self specialHideCurveMenuWithMenuItem:menuItem];
     
     // Report button touch back to the delegate
-    if(self.delegate && [self.delegate respondsToSelector:@selector(IPMenu:didSelectMenuItemAtIndex:)]){
+    if(self.delegate && [self.delegate respondsToSelector:@selector(IPArcMenu:didSelectMenuItemAtIndex:)]){
         [self.delegate IPArcMenu:self didSelectMenuItemAtIndex:[self.buttons indexOfObject:menuItem]];
     }
     
-    if(self.delegate && [self.delegate respondsToSelector:@selector(IPMenu:didSelectMenuItem:)]){
+    if(self.delegate && [self.delegate respondsToSelector:@selector(IPArcMenu:didSelectMenuItem:)]){
         [self.delegate IPArcMenu:self didSelectMenuItem:menuItem];
     }
     
@@ -290,7 +290,7 @@
         [UIView animateWithDuration:self.buttonAppearanceTime animations:^(void){
             [self setAlpha:1.0];
         }completion:^(BOOL finished) {
-            if(self.delegate && [self.delegate respondsToSelector:@selector(IPMenu:didFinishShowing:)])
+            if(self.delegate && [self.delegate respondsToSelector:@selector(IPArcMenu:didFinishShowing:)])
                 [self.delegate IPArcMenu:self didFinishShowing:finished];
         }];
         
@@ -336,7 +336,7 @@
         [UIView animateWithDuration:self.buttonDisappearanceTime animations:^(void){
             [self setAlpha:0];
         }completion:^(BOOL finished) {
-            if(self.delegate && [self.delegate respondsToSelector:@selector(IPMenu:didFinishHiding:)])
+            if(self.delegate && [self.delegate respondsToSelector:@selector(IPArcMenu:didFinishHiding:)])
                 [self.delegate IPArcMenu:self didFinishHiding:finished];
         }];
         
@@ -390,7 +390,7 @@
         [self setAlpha:0];
     }completion:^(BOOL finished) {
         [self setIsShowing:NO];
-        if(self.delegate && [self.delegate respondsToSelector:@selector(IPMenu:didFinishHiding:)])
+        if(self.delegate && [self.delegate respondsToSelector:@selector(IPArcMenu:didFinishHiding:)])
             [self.delegate IPArcMenu:self didFinishHiding:finished];
     }];
     
@@ -406,7 +406,7 @@
             }
             [self setAlpha:1.0];
         }completion:^(BOOL finished) {
-            if(self.delegate && [self.delegate respondsToSelector:@selector(IPMenu:didFinishShowing:)])
+            if(self.delegate && [self.delegate respondsToSelector:@selector(IPArcMenu:didFinishShowing:)])
                 [self.delegate IPArcMenu:self didFinishShowing:finished];
         }];
         
@@ -430,7 +430,7 @@
             }
             [self setAlpha:0];
         }completion:^(BOOL finished) {
-            if(self.delegate && [self.delegate respondsToSelector:@selector(IPMenu:didFinishHiding:)])
+            if(self.delegate && [self.delegate respondsToSelector:@selector(IPArcMenu:didFinishHiding:)])
                 [self.delegate IPArcMenu:self didFinishHiding:finished];
         }];
     }else{
